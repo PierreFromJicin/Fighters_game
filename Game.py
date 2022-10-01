@@ -11,9 +11,7 @@ Dva bojovnici mezi sebou bojuji na zivot a na smrt
 Zapojte prvky nahody (nahodne bonusove poskozeni, ..)
 Bojovnici budou bojovat v arene (Vytvorte arenu jako objekt)
 Vytvorte vice druhu bojovniku s ruznymi vlastnostmi (sermir, lukostrelec, mag, ..)
-
 """
-print ("změna")
 
 class Bojovnik:
 
