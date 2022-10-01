@@ -13,7 +13,7 @@ Bojovnici budou bojovat v arene (Vytvorte arenu jako objekt)
 Vytvorte vice druhu bojovniku s ruznymi vlastnostmi (sermir, lukostrelec, mag, ..)
 
 """
-
+print ("změna")
 
 class Bojovnik:
 
