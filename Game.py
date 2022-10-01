@@ -1,6 +1,5 @@
 import random
 
-
 """
 Hra:
 Predstavte si, ze jsem vas zakaznik a chci od Vas vytvorit v Pythonu hru simulaci areny s bojovniky.
@@ -13,6 +12,7 @@ Bojovnici budou bojovat v arene (Vytvorte arenu jako objekt)
 Vytvorte vice druhu bojovniku s ruznymi vlastnostmi (sermir, lukostrelec, mag, ..)
 """
 
+
 class Bojovnik:
 
     def __init__(self, jmeno, zbran, pocet_zivotu, stit: bool, bojove_zkusenosti):
@@ -22,7 +22,6 @@ class Bojovnik:
         self.stit = stit
         self.bojove_zkusenosti = bojove_zkusenosti
         self.sila_zbrane = self.ucinnost_zbrane()
-
 
         self.zbrane = {"mec": 75, "dyka": 50, "kopi": 80, "palcat": 45, "maceta": 70}
 
@@ -57,25 +56,26 @@ class Bojovnik:
             protivnik.pocet_zivotu = 0
 
 
-Robin_bojovnik = Bojovnik("Robin", "mec", 100, True, 80)
+Robin_bojovnik = Bojovnik("Robin", "mec", 55, True, 80)
 Jan_bojovnik = Bojovnik("Jan", "mec", 100, False, 80)
 
 while Jan_bojovnik.pocet_zivotu > 0 or Robin_bojovnik.pocet_zivotu > 0:
-    # TODO - dodělat if
 
-    Robin_bojovnik.uder(Jan_bojovnik)
-    Jan_bojovnik.uder(Robin_bojovnik)
+    if Robin_bojovnik.pocet_zivotu != 0:
+        Robin_bojovnik.uder(Jan_bojovnik)
+        print(f"životy Jana {Jan_bojovnik.pocet_zivotu}")
 
-    print(f"životy Jana {Jan_bojovnik.pocet_zivotu}")
-    print(f"zbraň Jana {Jan_bojovnik.sila_zbrane}")
-    print(f"životy Robina {Robin_bojovnik.pocet_zivotu}")
-    print(f"zbraň Robina {Robin_bojovnik.sila_zbrane}")
+        if Jan_bojovnik.pocet_zivotu != 0:
+            Jan_bojovnik.uder(Robin_bojovnik)
+            print(f"životy Robina {Robin_bojovnik.pocet_zivotu}")
 
-
+        else:
+            break
+    else:
+        break
 
 ucinnost_zbrane = Robin_bojovnik.sila_zbrane
 print("Robinova zbran: ", ucinnost_zbrane)
-
 ucinnost_zbrane = Jan_bojovnik.sila_zbrane
 print("Janova zbran: ", ucinnost_zbrane)
 
