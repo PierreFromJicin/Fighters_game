@@ -56,28 +56,51 @@ class Bojovnik:
             protivnik.pocet_zivotu = 0
 
 
-Robin_bojovnik = Bojovnik("Robin", "mec", 55, True, 80)
-Jan_bojovnik = Bojovnik("Jan", "mec", 100, False, 80)
+def fight(*fighters):
+    _fighterJ = fighters[0]  # Jan
+    _fighterR = fighters[1]  # Robin
 
-while Jan_bojovnik.pocet_zivotu > 0 or Robin_bojovnik.pocet_zivotu > 0:
+    while _fighterJ.pocet_zivotu > 0 or _fighterR.pocet_zivotu > 0:
 
-    if Robin_bojovnik.pocet_zivotu != 0:
-        Robin_bojovnik.uder(Jan_bojovnik)
-        print(f"životy Jana {Jan_bojovnik.pocet_zivotu}")
+        if _fighterR.pocet_zivotu != 0:
+            _fighterR.uder(_fighterJ)
+            print(f"životy {_fighterJ} {_fighterJ.pocet_zivotu}")
 
-        if Jan_bojovnik.pocet_zivotu != 0:
-            Jan_bojovnik.uder(Robin_bojovnik)
-            print(f"životy Robina {Robin_bojovnik.pocet_zivotu}")
+            if _fighterJ.pocet_zivotu != 0:
+                _fighterJ.uder(_fighterR)
+                print(f"životy {_fighterR} {_fighterR.pocet_zivotu}")
 
+            else:
+                break
         else:
             break
+
+    if _fighterR.pocet_zivotu != _fighterJ.pocet_zivotu:
+        if _fighterR.pocet_zivotu != 0:
+            winner = _fighterR.jmeno
+        else:
+            winner = _fighterJ.jmeno
     else:
-        break
+        winner = "no_one"
+
+    return winner
+
+
+def arena(fighter_a: object, fighter_b: object):
+    fighters = {fighter_a, fighter_b}  # set
+    winner = fight(fighters)
+    print(f"The winner is: {winner}")
+
+
+Robin_bojovnik = Bojovnik("Robin", "mec", 100, True, 80)
+Jan_bojovnik = Bojovnik("Jan", "mec", 100, False, 80)
 
 ucinnost_zbrane = Robin_bojovnik.sila_zbrane
 print("Robinova zbran: ", ucinnost_zbrane)
 ucinnost_zbrane = Jan_bojovnik.sila_zbrane
 print("Janova zbran: ", ucinnost_zbrane)
+
+arena(Robin_bojovnik, Jan_bojovnik)
 
 """
 # TODO - arena obsahuje funkci boj,
