@@ -53,18 +53,21 @@ class Bojovnik:
 
     def uder(self, protivnik):
         protivnik.pocet_zivotu -= self.sila_zbrane
+        if protivnik.pocet_zivotu <= 0:
+            protivnik.pocet_zivotu = 0
 
 
 Robin_bojovnik = Bojovnik("Robin", "mec", 100, True, 80)
 Jan_bojovnik = Bojovnik("Jan", "mec", 100, False, 80)
 
 while Jan_bojovnik.pocet_zivotu > 0 or Robin_bojovnik.pocet_zivotu > 0:
+    # TODO - dodělat if
 
     Robin_bojovnik.uder(Jan_bojovnik)
     Jan_bojovnik.uder(Robin_bojovnik)
+
     print(f"životy Jana {Jan_bojovnik.pocet_zivotu}")
     print(f"zbraň Jana {Jan_bojovnik.sila_zbrane}")
-
     print(f"životy Robina {Robin_bojovnik.pocet_zivotu}")
     print(f"zbraň Robina {Robin_bojovnik.sila_zbrane}")
 
