@@ -1,4 +1,5 @@
 import random
+from typing import Any
 
 """
 Hra:
@@ -57,18 +58,17 @@ class Bojovnik:
 
 
 def fight(*fighters):
-    _fighterJ = fighters[0]  # Jan
-    _fighterR = fighters[1]  # Robin
+    _fighterJ, _fighterR = fighters
 
     while _fighterJ.pocet_zivotu > 0 or _fighterR.pocet_zivotu > 0:
 
         if _fighterR.pocet_zivotu != 0:
             _fighterR.uder(_fighterJ)
-            print(f"životy {_fighterJ} {_fighterJ.pocet_zivotu}")
+            print(f"životy {_fighterJ.jmeno} {_fighterJ.pocet_zivotu}")
 
             if _fighterJ.pocet_zivotu != 0:
                 _fighterJ.uder(_fighterR)
-                print(f"životy {_fighterR} {_fighterR.pocet_zivotu}")
+                print(f"životy {_fighterR.jmeno} {_fighterR.pocet_zivotu}")
 
             else:
                 break
@@ -86,21 +86,23 @@ def fight(*fighters):
     return winner
 
 
-def arena(fighter_a: object, fighter_b: object):
-    fighters = {fighter_a, fighter_b}  # set
-    winner = fight(fighters)
-    print(f"The winner is: {winner}")
+def arena(fighter_a, fighter_b):
+    fighters: tuple = (fighter_a, fighter_b)
+    #  TODO - dodělat vnesení náhodného výběru kdo zaútočí jako první
+    arena_winner = fight(fighters[0], fighters[1])
+    return arena_winner
 
 
 Robin_bojovnik = Bojovnik("Robin", "mec", 100, True, 80)
-Jan_bojovnik = Bojovnik("Jan", "mec", 100, False, 80)
+Jan_bojovnik = Bojovnik("Jan", "mec", 100, True, 80)
 
 ucinnost_zbrane = Robin_bojovnik.sila_zbrane
 print("Robinova zbran: ", ucinnost_zbrane)
 ucinnost_zbrane = Jan_bojovnik.sila_zbrane
 print("Janova zbran: ", ucinnost_zbrane)
 
-arena(Robin_bojovnik, Jan_bojovnik)
+winner_name: str | Any = arena(Robin_bojovnik, Jan_bojovnik)
+print("The winner is: ", winner_name)
 
 """
 # TODO - arena obsahuje funkci boj,
