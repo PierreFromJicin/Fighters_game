@@ -64,11 +64,11 @@ def fight(*fighters):
 
         if _fighterR.pocet_zivotu != 0:
             _fighterR.uder(_fighterJ)
-            print(f"životy {_fighterJ.jmeno} {_fighterJ.pocet_zivotu}")
+            print(f"životy {_fighterJ.jmeno} {_fighterJ.pocet_zivotu: .1f}")
 
             if _fighterJ.pocet_zivotu != 0:
                 _fighterJ.uder(_fighterR)
-                print(f"životy {_fighterR.jmeno} {_fighterR.pocet_zivotu}")
+                print(f"životy {_fighterR.jmeno} {_fighterR.pocet_zivotu: .1f}")
 
             else:
                 break
