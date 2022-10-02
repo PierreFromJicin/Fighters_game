@@ -102,7 +102,7 @@ print("Robinova zbran: ", ucinnost_zbrane)
 ucinnost_zbrane = Jan_bojovnik.sila_zbrane
 print("Janova zbran: ", ucinnost_zbrane)
 
-winner_name: str | Any = arena(Robin_bojovnik, Jan_bojovnik)
+winner_name = arena(Robin_bojovnik, Jan_bojovnik)
 print("The winner is: ", winner_name)
 
 """
