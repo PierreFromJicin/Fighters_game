@@ -24,7 +24,8 @@ class Bojovnik:
         self.bojove_zkusenosti = bojove_zkusenosti
         self.sila_zbrane = self.ucinnost_zbrane()
 
-        self.zbrane = {"mec": 75, "dyka": 50, "kopi": 80, "palcat": 45, "maceta": 70}
+        self.zbrane = {"mec": 75, "dyka": 50,
+                       "kopi": 80, "palcat": 45, "maceta": 70}
 
     def ucinnost_zbrane(self):
         if self.zbran == "mec":
@@ -52,7 +53,7 @@ class Bojovnik:
         return (random.randint(0, 100) + self.bojove_zkusenosti + (100 * self.stit)) / 3 * self.pocet_zivotu / 100
 
     def uder(self, protivnik):
-        protivnik.pocet_zivotu -= self.sila_zbrane
+        protivnik.pocet_zivotu -= self.sila_zbrane*random.random()
         if protivnik.pocet_zivotu <= 0:
             protivnik.pocet_zivotu = 0
 
@@ -89,12 +90,12 @@ def fight(*fighters):
 def arena(fighter_a, fighter_b):
     fighters: tuple = (fighter_a, fighter_b)
     #  TODO - dodělat vnesení náhodného výběru kdo zaútočí jako první
-    arena_winner = fight(fighters[0], fighters[1])
+    arena_winner = fight(fighters[1], fighters[0])
     return arena_winner
 
 
-Robin_bojovnik = Bojovnik("Robin", "mec", 100, True, 80)
-Jan_bojovnik = Bojovnik("Jan", "mec", 100, True, 80)
+Robin_bojovnik = Bojovnik("Robin", "mec", 100, True, 100)
+Jan_bojovnik = Bojovnik("Jan", "mec", 100, True, 100)
 
 ucinnost_zbrane = Robin_bojovnik.sila_zbrane
 print("Robinova zbran: ", ucinnost_zbrane)
