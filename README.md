@@ -13,8 +13,7 @@ Zamerte se na bezpecnosti detaily objektu - napr. pocet zivotu bojovnika, jeho p
 
 Udelejte moznost bojovych skupin - vice bojovniku na kazde strane, ktery se stridaji kdyz ten pred nemi zemre
 
-Muzete rozsirit hru na PVE (player vs environment - hrac proti pocitaci), kdy si napr. hrac muze vybrat 5 bojovniku, kteri budou bojovat proti bosovi (drak, ..) 
+Muzete rozsirit hru na PVE (player vs environment - hrac proti pocitaci), kdy si napr. hrac muze vybrat 5 bojovniku, kteri budou bojovat proti bosovi (drak, ..)
 
 
 ![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
-
