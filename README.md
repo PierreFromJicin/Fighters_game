@@ -3,6 +3,7 @@
 The Fighters - game by the PythonRemoteCZ11
 
 
+
 ### Zadání:
 
 Dva bojovnici mezi sebou bojuji na zivot a na smrt
